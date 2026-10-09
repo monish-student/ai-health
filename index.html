@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b7f80">
+  <meta name="description" content="HealthCopilot AI — a simple personal wellness dashboard demo.">
+  <title>HealthCopilot AI | Your wellness companion</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" aria-label="HealthCopilot AI home">
+        <span class="brand-mark">✚</span>
+        <span>Health<span class="brand-light">Copilot</span><small>AI WELLNESS</small></span>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a class="nav-link active" href="#home"><span>⌂</span> Overview</a>
+        <a class="nav-link" href="#checkin"><span>♡</span> Daily check-in</a>
+        <a class="nav-link" href="#habits"><span>◷</span> Healthy habits</a>
+        <a class="nav-link" href="#assistant"><span>✧</span> AI assistant</a>
+        <a class="nav-link" href="#about"><span>ⓘ</span> About</a>
+      </nav>
+      <div class="sidebar-note">
+        <span class="pulse-dot"></span>
+        <div><strong>Your wellbeing matters</strong><p>Small steps, every day.</p></div>
+      </div>
+      <p class="sidebar-footer">HealthCopilot AI · Demo</p>
+    </aside>
+
+    <main class="main-content" id="home">
+      <header class="topbar">
+        <button class="menu-button" id="menuButton" aria-label="Toggle navigation">☰</button>
+        <div class="breadcrumb">Workspace <span>/</span> Overview</div>
+        <div class="topbar-right"><span class="status-pill"><i></i> Demo mode</span><div class="avatar">HC</div></div>
+      </header>
+
+      <section class="welcome-row">
+        <div>
+          <p class="eyebrow">YOUR PERSONAL WELLNESS SPACE</p>
+          <h1>Take care of <span>you.</span></h1>
+          <p class="subtitle">A clearer picture of your everyday wellbeing starts here.</p>
+        </div>
+        <div class="date-card"><span class="date-icon">☀</span><div><strong id="todayDate">Today</strong><small>One step at a time</small></div></div>
+      </section>
+
+      <section class="hero-card">
+        <div class="hero-copy">
+          <span class="hero-label">A HEALTHIER ROUTINE BEGINS HERE</span>
+          <h2>Your health journey,<br>supported every day.</h2>
+          <p>Track simple habits, reflect on how you feel, and find helpful wellness information in one calm space.</p>
+          <a class="button button-light" href="#checkin">Start daily check-in <span>→</span></a>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+          <div class="heart-shape">♡</div><div class="art-bubble bubble-one">✚</div>
+          <div class="art-bubble bubble-two">✦</div><div class="art-bubble bubble-three">+</div>
+        </div>
+      </section>
+
+      <section class="section-heading">
+        <div><p class="eyebrow">YOUR SNAPSHOT</p><h2>Today's overview</h2></div>
+        <span class="muted">Personal tracking · Stored in this browser only</span>
+      </section>
+
+      <section class="stats-grid" aria-label="Wellness statistics">
+        <article class="stat-card"><div class="stat-top"><span class="stat-icon water">≈</span><span class="stat-tag">HYDRATION</span></div><p class="stat-number"><span id="waterCount">0</span><small> / 8 glasses</small></p><div class="progress"><span id="waterProgress"></span></div><button class="text-button" id="addWater">+ Add a glass</button></article>
+        <article class="stat-card"><div class="stat-top"><span class="stat-icon sleep">☾</span><span class="stat-tag">SLEEP</span></div><p class="stat-number"><span id="sleepValue">8</span><small> hours goal</small></p><p class="stat-description">Aim for a regular sleep schedule.</p><a class="text-button" href="#habits">View healthy habits →</a></article>
+        <article class="stat-card"><div class="stat-top"><span class="stat-icon mood">☺</span><span class="stat-tag">MOOD CHECK-IN</span></div><p class="stat-number" id="moodValue">Not set</p><p class="stat-description">How are you feeling today?</p><a class="text-button" href="#checkin">Check in →</a></article>
+      </section>
+
+      <section class="content-grid">
+        <article class="panel" id="checkin">
+          <div class="panel-heading"><div><p class="eyebrow">PAUSE & REFLECT</p><h2>Daily check-in</h2></div><span class="round-icon">♡</span></div>
+          <p class="panel-description">Choose the mood that best describes how you feel right now.</p>
+          <div class="mood-options" role="group" aria-label="Choose your mood">
+            <button class="mood-option" data-mood="Great"><span>😁</span><small>Great</small></button>
+            <button class="mood-option" data-mood="Good"><span>🙂</span><small>Good</small></button>
+            <button class="mood-option" data-mood="Okay"><span>😐</span><small>Okay</small></button>
+            <button class="mood-option" data-mood="Low"><span>😔</span><small>Low</small></button>
+            <button class="mood-option" data-mood="Stressed"><span>😣</span><small>Stressed</small></button>
+          </div>
+          <label class="field-label" for="reflection">Anything you want to note? <span>Optional</span></label>
+          <textarea id="reflection" rows="3" placeholder="Write a private note for yourself..."></textarea>
+          <div class="panel-actions"><span class="muted" id="checkinMessage">Your check-in stays in this browser.</span><button class="button button-primary" id="saveCheckin">Save check-in</button></div>
+        </article>
+
+        <article class="panel" id="habits">
+          <div class="panel-heading"><div><p class="eyebrow">SMALL STEPS COUNT</p><h2>Healthy habits</h2></div><span class="round-icon">✓</span></div>
+          <p class="panel-description">Mark habits as you complete them today.</p>
+          <div class="habit-list">
+            <label class="habit-row"><span class="habit-emoji">💧</span><span class="habit-copy"><strong>Drink water</strong><small>Stay hydrated throughout the day</small></span><input type="checkbox" data-habit="water"></label>
+            <label class="habit-row"><span class="habit-emoji">🚶</span><span class="habit-copy"><strong>Move your body</strong><small>Take a walk or stretch gently</small></span><input type="checkbox" data-habit="move"></label>
+            <label class="habit-row"><span class="habit-emoji">🥗</span><span class="habit-copy"><strong>Eat a balanced meal</strong><small>Add nourishing foods when possible</small></span><input type="checkbox" data-habit="meal"></label>
+            <label class="habit-row"><span class="habit-emoji">🌙</span><span class="habit-copy"><strong>Wind down</strong><small>Make time to relax before bed</small></span><input type="checkbox" data-habit="wind"></label>
+          </div>
+          <div class="habit-summary"><span id="habitCount">0 of 4 completed</span><div class="progress"><span id="habitProgress"></span></div></div>
+        </article>
+      </section>
+
+      <section class="panel assistant-panel" id="assistant">
+        <div class="assistant-symbol">✧</div>
+        <div class="assistant-copy"><p class="eyebrow">WELLNESS INFORMATION</p><h2>Ask HealthCopilot</h2><p>Explore general health and wellbeing topics. This demo provides a few basic educational prompts, not medical advice.</p></div>
+        <div class="assistant-action"><label class="sr-only" for="question">Your wellness question</label><input id="question" type="text" placeholder="e.g. How can I build a sleep routine?"><button class="button button-primary" id="askButton">Explore <span>→</span></button></div>
+        <div class="answer-box" id="answerBox" aria-live="polite" hidden></div>
+      </section>
+
+      <footer id="about">
+        <a class="footer-brand" href="#home">✚ HealthCopilot AI</a>
+        <p>For wellness education only. Not a substitute for professional medical care, diagnosis, or treatment.</p>
+        <a href="#home" class="back-top">Back to top ↑</a>
+      </footer>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
